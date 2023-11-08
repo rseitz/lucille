@@ -49,6 +49,9 @@ jobs:
       - name: Install Node.js dependencies
         run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
         working-directory: doc/site
+      - name: Install postcss
+        run: npm install postcss-cli
+        working-directory: doc/site
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
